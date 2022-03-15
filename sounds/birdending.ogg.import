@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/birdending.ogg-5bf397a63ec52462f05464eb6dea63d6.oggstr"
+
+[deps]
+
+source_file="res://sounds/birdending.ogg"
+dest_files=[ "res://.import/birdending.ogg-5bf397a63ec52462f05464eb6dea63d6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

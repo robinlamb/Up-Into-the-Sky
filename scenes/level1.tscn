@@ -1,0 +1,427 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://models/babybird.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/bird.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/level1.gd" type="Script" id=3]
+[ext_resource path="res://models/rock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/bee.tscn" type="PackedScene" id=5]
+[ext_resource path="res://models/rose.tscn" type="PackedScene" id=6]
+[ext_resource path="res://BubblegumSans-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://models/spider.tscn" type="PackedScene" id=8]
+[ext_resource path="res://models/tree2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://models/YellowCube.tscn" type="PackedScene" id=10]
+[ext_resource path="res://models/bush.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sounds/birdgamesongbirdsounds.ogg" type="AudioStream" id=12]
+[ext_resource path="res://sounds/bfh1_hit_07.ogg" type="AudioStream" id=13]
+[ext_resource path="res://buttons/transparentDark01.png" type="Texture" id=14]
+[ext_resource path="res://buttons/flatDark02.png" type="Texture" id=15]
+[ext_resource path="res://buttons/flatDark04.png" type="Texture" id=16]
+[ext_resource path="res://buttons/transparentDark03.png" type="Texture" id=17]
+[ext_resource path="res://buttons/transparentDark04.png" type="Texture" id=18]
+[ext_resource path="res://buttons/flatDark05.png" type="Texture" id=19]
+[ext_resource path="res://sounds/Rise06.ogg" type="AudioStream" id=20]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.172549, 0.733333, 0.286275, 1 )
+
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
+size = Vector2( 50, 1000 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 50, 1, 1000 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 26.371, 5, 5 )
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 70
+font_data = ExtResource( 7 )
+
+[sub_resource type="ProceduralSky" id=10]
+sky_top_color = Color( 0.65098, 0.956863, 0.921569, 1 )
+sky_horizon_color = Color( 0.921569, 0.219608, 0.713726, 1 )
+
+[sub_resource type="Environment" id=11]
+background_mode = 2
+background_sky = SubResource( 10 )
+fog_sun_color = Color( 0.921569, 0.219608, 0.811765, 1 )
+fog_sun_amount = 0.05
+dof_blur_far_distance = 30.0
+
+[sub_resource type="DynamicFont" id=12]
+size = 52
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=13]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_fonts/font:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 50, 52, 50 ]
+}
+
+[sub_resource type="Animation" id=14]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="Spatial" type="Spatial" groups=[
+"game",
+]]
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 500 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 500 )
+shape = SubResource( 3 )
+
+[node name="StuffToMoveForward" type="KinematicBody" parent="."]
+
+[node name="Camera" type="Camera" parent="StuffToMoveForward"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.244, 4.919 )
+
+[node name="bird" parent="StuffToMoveForward" instance=ExtResource( 2 )]
+transform = Transform( 0.33579, -0.0379854, 0, 0.030512, 0.418036, 0, 0, 0, 0.370695, 3.911, 5.63741, 30.9214 )
+
+[node name="bird2" parent="StuffToMoveForward" instance=ExtResource( 2 )]
+transform = Transform( 0.334984, 0.0477509, 0, -0.0383562, 0.417033, 0, 0, 0, 0.370695, -4.97555, 6.9582, 23.3162 )
+
+[node name="ObjectDestroyer" type="Area" parent="StuffToMoveForward"]
+transform = Transform( 1, 0, 0, 0, 3.74759, 0, 0, 0, 1, 0, 0, -6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StuffToMoveForward/ObjectDestroyer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.587935, 0 )
+shape = SubResource( 4 )
+
+[node name="babybird" parent="StuffToMoveForward" instance=ExtResource( 1 )]
+transform = Transform( -0.260673, 0, 2.47129e-08, 0, 0.277735, 0, -2.27888e-08, 0, -0.282682, 0, 0, 12 )
+
+[node name="Area" type="Area" parent="StuffToMoveForward"]
+
+[node name="CollisionShape" type="CollisionShape" parent="StuffToMoveForward/Area"]
+shape = SubResource( 5 )
+disabled = true
+
+[node name="DialogueBox" type="ColorRect" parent="."]
+margin_right = 601.0
+margin_bottom = 135.0
+color = Color( 0.454902, 0.431373, 0.431373, 0.623529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DialogueBox"]
+margin_left = 14.0
+margin_top = 9.0
+margin_right = 603.0
+margin_bottom = 131.0
+custom_fonts/font = SubResource( 6 )
+text = "
+Dad:
+It's a fine day for flying! The more you practice, the higher you'll be able to fly!
+Collect the cubes to practice flying."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cube" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.725, 2.5, 22.705 )
+
+[node name="Cube2" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.982, 2.5, 68.728 )
+
+[node name="Cube3" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93981, 1.47141, 177.778 )
+
+[node name="Cube4" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.918701, 1.47141, 87.2558 )
+
+[node name="Cube5" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.919, 2.5, 129.093 )
+
+[node name="Cube6" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.593, 3.5, 214.438 )
+
+[node name="Cube7" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46, 3, 259.01 )
+
+[node name="Cube8" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.616, 3.5, 282.986 )
+
+[node name="Cube9" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.616, 2, 333.27 )
+
+[node name="Cube10" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532, 3, 377.181 )
+
+[node name="Cube11" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532, 4, 452.051 )
+
+[node name="Cube12" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55, 2, 474.974 )
+
+[node name="Cube13" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55, 4, 512.736 )
+
+[node name="Cube14" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55, 2, 553.743 )
+
+[node name="Cube15" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.521, 5, 605.948 )
+
+[node name="CubesLabel" type="Label" parent="."]
+margin_left = 434.0
+margin_top = 966.0
+margin_right = 571.0
+margin_bottom = 1002.0
+custom_fonts/font = SubResource( 7 )
+text = "Cubes: 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblFlightLevel" type="Label" parent="."]
+margin_left = 18.0
+margin_top = 976.0
+margin_right = 172.0
+margin_bottom = 1012.0
+custom_fonts/font = SubResource( 7 )
+text = "Flight Level: 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+visible = false
+anchor_right = 0.047
+anchor_bottom = 0.02
+margin_left = 249.0
+margin_top = 400.0
+margin_right = 343.8
+margin_bottom = 421.52
+custom_fonts/font = SubResource( 8 )
+text = "Try Again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblGameOver" type="Label" parent="."]
+visible = false
+margin_left = 166.0
+margin_top = 273.0
+margin_right = 485.0
+margin_bottom = 321.0
+custom_fonts/font = SubResource( 9 )
+text = "Game Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rock" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504436, 34.0734 )
+
+[node name="rock2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504436, 416.95 )
+
+[node name="rock3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59893, -4.89749, 434.273 )
+
+[node name="rock4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59893, -4.89749, 502.201 )
+
+[node name="tree2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.95849, 0, 166.696 )
+
+[node name="tree3" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.95356, 0, 191.486 )
+
+[node name="tree4" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.95356, 0, 228.749 )
+
+[node name="tree5" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.95356, 0, 276.236 )
+
+[node name="tree6" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.95356, 0, 440.032 )
+
+[node name="tree7" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.95356, 0, 592.721 )
+
+[node name="tree8" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.46973, -0.59346, 547.31 )
+
+[node name="bee" parent="." instance=ExtResource( 5 )]
+transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -2.95, 2, 43.74 )
+
+[node name="bee2" parent="." instance=ExtResource( 5 )]
+transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 2.40651, 3, 202.735 )
+
+[node name="bee3" parent="." instance=ExtResource( 5 )]
+transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 2.55015, 3, 242.634 )
+
+[node name="bee4" parent="." instance=ExtResource( 5 )]
+transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 3.33441, 3, 323.303 )
+
+[node name="bee5" parent="." instance=ExtResource( 5 )]
+transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.409, 3, 485.953 )
+
+[node name="bee6" parent="." instance=ExtResource( 5 )]
+transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.409, 3, 399.818 )
+
+[node name="bush" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 62.4912 )
+
+[node name="bush2" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 359.175 )
+
+[node name="bush3" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.05827, 0, 491.146 )
+
+[node name="bush4" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.05827, 0, 582.142 )
+
+[node name="rose" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80.963 )
+
+[node name="rose2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 297.664 )
+
+[node name="rose3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77914, 0, 352.312 )
+
+[node name="rose4" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77914, 0, 415.017 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = 5.672
+autoplay = true
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = 3.782
+
+[node name="btnUp" type="TouchScreenButton" parent="."]
+position = Vector2( 103, 724 )
+normal = ExtResource( 14 )
+pressed = ExtResource( 15 )
+action = "ui_up"
+
+[node name="btnLeft" type="TouchScreenButton" parent="."]
+position = Vector2( 48, 776 )
+normal = ExtResource( 17 )
+pressed = ExtResource( 16 )
+action = "ui_left"
+
+[node name="btnRight" type="TouchScreenButton" parent="."]
+position = Vector2( 146, 773 )
+normal = ExtResource( 18 )
+pressed = ExtResource( 19 )
+action = "ui_right"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 11 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.962767, -0.245431, -0.113327, -0.270332, 0.874084, 0.403606, 0, 0.419214, -0.907887, 0, 20, 0 )
+light_color = Color( 0.964706, 0.235294, 0.117647, 1 )
+shadow_enabled = true
+
+[node name="spider" parent="." instance=ExtResource( 8 )]
+transform = Transform( -8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, -0.68512, 0, 103.738 )
+
+[node name="spider2" parent="." instance=ExtResource( 8 )]
+transform = Transform( -8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, -0.68512, 0, 147.371 )
+
+[node name="spider3" parent="." instance=ExtResource( 8 )]
+transform = Transform( -8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, -0.68512, 0, 431.97 )
+
+[node name="spider4" parent="." instance=ExtResource( 8 )]
+transform = Transform( -8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, -0.68512, 0, 537.691 )
+
+[node name="LevelUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = 10.0
+
+[node name="lblLevelUp" type="Label" parent="."]
+visible = false
+margin_left = 225.0
+margin_top = 382.0
+margin_right = 390.0
+margin_bottom = 441.0
+custom_fonts/font = SubResource( 12 )
+text = "Level Up"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="lblLevelUp"]
+autoplay = "animatetext"
+anims/animatetext = SubResource( 13 )
+
+[node name="tmrLevelUpLabel" type="Timer" parent="."]
+
+[node name="tmrGameWonFade" type="Timer" parent="."]
+
+[node name="ScreenFade" type="ColorRect" parent="."]
+visible = false
+margin_left = -122.0
+margin_right = 687.0
+margin_bottom = 1139.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenFade"]
+autoplay = "screenfade"
+anims/screenfade = SubResource( 14 )
+
+[connection signal="area_entered" from="StuffToMoveForward/ObjectDestroyer" to="." method="_on_ObjectDestroyer_area_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="tmrLevelUpLabel" to="." method="_on_tmrLevelUpLabel_timeout"]
+[connection signal="timeout" from="tmrGameWonFade" to="." method="_on_tmrGameWonFade_timeout"]

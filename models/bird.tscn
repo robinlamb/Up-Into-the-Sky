@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://models/bird.glb" type="PackedScene" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fly2 (copy)"
+length = 0.833333
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Armature/Skeleton:lowerwing.r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, -4.94765e-10, -1.16415e-10, 1.49012e-08, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, -0.0141034, -0.003144, -0.0210216, 0.999675, 1, 1, 1, 0.2, 1, 0, 0, 0, -0.088943, -0.0198276, -0.132573, 0.986975, 1, 1, 1, 0.333333, 1, 0, 0, 0, -0.162139, -0.0361447, -0.241674, 0.956033, 1, 1, 1, 0.4, 1, 0, 0, 0, -0.197695, -0.0440711, -0.294673, 0.933886, 1, 1, 1, 0.466667, 1, 0, 0, 0, -0.182686, -0.0407252, -0.272301, 0.943832, 1, 1, 1, 0.666667, 1, 0, 0, 0, -0.0842995, -0.0187924, -0.125652, 0.988308, 1, 1, 1, 0.833333, 1, 0, 0, 0, -4.94765e-10, -1.16415e-10, 1.49012e-08, 1, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("Armature/Skeleton:upperwing.r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 0, 0, 0, -3.49835e-27, 2.84217e-14, -4.10291e-14, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, -0.00330512, -0.000110217, 0.0013423, 0.999994, 1, 1, 1, 0.4, 1, 0, 0, 0, -0.0473528, -0.00157909, 0.019231, 0.998692, 1, 1, 1, 0.466667, 1, 0, 0, 0, -0.0436115, -0.00145433, 0.0177117, 0.998891, 1, 1, 1, 0.833333, 1, 0, 0, 0, -3.49835e-27, 2.84217e-14, -4.10291e-14, 1, 1, 1, 1 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("Armature/Skeleton:lowerwing.l")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 0, 0, 0, -4.94765e-10, 1.16415e-10, -1.49012e-08, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, -0.0141859, 0.00471047, 0.0217403, 0.999652, 1, 1, 1, 0.2, 1, 0, 0, 0, -0.0894372, 0.0296974, 0.137064, 0.986069, 1, 1, 1, 0.333333, 1, 0, 0, 0, -0.16292, 0.0540972, 0.249679, 0.952991, 1, 1, 1, 0.4, 1, 0, 0, 0, -0.198542, 0.0659255, 0.30427, 0.92933, 1, 1, 1, 0.466667, 1, 0, 0, 0, -0.183513, 0.060935, 0.281237, 0.939955, 1, 1, 1, 0.666667, 1, 0, 0, 0, -0.0847704, 0.0281479, 0.129913, 0.987494, 1, 1, 1, 0.833333, 1, 0, 0, 0, -4.94765e-10, 1.16415e-10, -1.49012e-08, 1, 1, 1, 1 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("Armature/Skeleton:upperwing.l")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, 0, 0, 0, -3.49835e-27, -2.84217e-14, 4.10291e-14, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, -0.00241464, -0.000121691, -0.000981314, 0.999997, 1, 1, 1, 0.4, 1, 0, 0, 0, -0.0346019, -0.00174383, -0.0140626, 0.999301, 1, 1, 1, 0.466667, 1, 0, 0, 0, -0.031867, -0.001606, -0.0129511, 0.999407, 1, 1, 1, 0.833333, 1, 0, 0, 0, -3.49835e-27, -2.84217e-14, 4.10291e-14, 1, 1, 1, 1 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("Armature/Skeleton:body")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0, 0.00542939, 0, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, 0, 0.0639419, 0, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0, 0.372367, 0, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0, 0.423696, 0, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, 0, 0.40921, 0, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, 0, 0.344626, 0, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, 0, 0.0618559, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0.00774562, 0, 0, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1, 2.89066, 2.9055 )
+
+[node name="bird" instance=ExtResource( 1 )]
+transform = Transform( 0.337173, 0, 0, 0, 0.419758, 0, 0, 0, 0.370695, 0, 0, 0 )
+
+[node name="AnimationPlayer" parent="." index="3"]
+autoplay = "fly2 (copy)"
+"anims/fly2 (copy)" = SubResource( 1 )
+
+[node name="Area" type="Area" parent="." index="4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+shape = SubResource( 2 )
+disabled = true
